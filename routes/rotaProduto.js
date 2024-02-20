@@ -1,15 +1,15 @@
 import { Router } from "express";
-import ProdutoCtrl from "../Controle/produtoCtrl.js";
+import DepartamentoCtrl from "../controller/departamentoCtrl";
 
-const prodCtrl = new ProdutoCtrl();
-const rotaProduto = new Router();
+const depCtrl = new DepartamentoCtrl();
+const rotaDepartamento = new Router();
 
-rotaProduto
-.get('/', prodCtrl.consultar)
-.get('/:termo', prodCtrl.consultar)
-.post('/', prodCtrl.gravar)
-.patch('/', prodCtrl.atualizar)
-.put('/', prodCtrl.atualizar)
-.delete('/', prodCtrl.excluir);
+rotaDepartamento
+.get('/', depCtrl.consultar)
+.get('/:termo', depCtrl.consultar)
+.post('/', depCtrl.gravar)
+.patch('/', depCtrl.atualizar)
+.put('/', depCtrl.atualizar)
+.delete('/', depCtrl.excluir);
 
-export default rotaProduto;
+export default rotaDepartamento;
