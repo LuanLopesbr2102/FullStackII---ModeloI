@@ -1,4 +1,4 @@
-import DepartamentoDAO from "../Persistence/departamentoDAO";
+import DepartamentoDAO from "../Persistence/departamentoDAO.js";
 //não esqueça do .js no final da importação
 
 export default class Departamento {

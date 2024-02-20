@@ -1,5 +1,5 @@
 import { Router } from "express";
-import FuncionarioCtrl from "../controller/FuncionarioCtrl";
+import FuncionarioCtrl from "../controller/FuncionarioCtrl.js";
 
 //rotas é o mapeamento das requisições da web para um determinado
 //endpoint da aplicação

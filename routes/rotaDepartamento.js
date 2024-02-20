@@ -1,5 +1,5 @@
 import { Router } from "express";
-import DepartamentoCtrl from "../controller/departamentoCtrl";
+import DepartamentoCtrl from "../controller/departamentoCtrl.js";
 
 const depCtrl = new DepartamentoCtrl();
 const rotaDepartamento = new Router();
