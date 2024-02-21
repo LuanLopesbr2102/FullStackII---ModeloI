@@ -6,11 +6,11 @@ export default class DepartamentoDAO {
 
     async gravar(departamento) {
         if (departamento instanceof Departamento) {
-            const sql = `INSERT INTO Departamento(dep_Nome, dep_Localizacao,
+            const sql = `INSERT INTO departamento(dep_Nome, dep_Localizacao,
                 dep_Chefedodepartamento, dep_Dtacriacao, dep_Descricao, dep_Orcamento, fuc_cod)
                 VALUES(?,?,?,?,?,?,?)`;
             const parametros = [departamento.dep_Nome, departamento.dep_Localizacao, departamento.dep_Chefedodepartamento,
-                departamento.dep_Dtacriacao, departamento.dep_Descricao, departamento.dep_Orcamento,departamento.funcionario.id];
+                departamento.dep_Dtacriacao, departamento.dep_Descricao, departamento.dep_Orcamento,departamento.Funcionarios.id];
 
             const conexao = await conectar();
             const retorno = await conexao.execute(sql, parametros);

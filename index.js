@@ -12,8 +12,8 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use('/categoria',rotaFuncionario);
-app.use('/produto',rotaDepartamento);
+app.use('/Funcionario',rotaFuncionario);
+app.use('/Departamento',rotaDepartamento);
 
 app.listen(porta, host, ()=>{
     console.log(`Servidor escutando na porta ${host}:${porta}.`);

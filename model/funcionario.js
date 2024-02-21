@@ -33,8 +33,16 @@ export default class Funcionarios{
         return this.#Nome;
     }
 
-    set Cargo(novaCargo){
-        this.#Cargo=novaCargo;
+    set Nome(novaNome){
+        this.#Nome=novaNome;
+    }
+
+    get Cargo(){
+        return this.#Cargo;
+    }
+
+    set Cargo(novoCargo){
+        this.#Cargo=novoCargo;
     }
 
     get Salario(){

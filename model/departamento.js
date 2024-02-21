@@ -38,7 +38,7 @@ export default class Departamento {
     }
 
     set Nome(novoNome){
-        this.#id = novoNome;
+        this.#Nome = novoNome;
     }
 //id=0, Nome='', Localizacao='', ChefedeDepartamento='', DatadeCriacao='', Descricao='', Orcamento=''
     get Localizacao(){
