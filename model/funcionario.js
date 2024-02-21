@@ -3,23 +3,11 @@ import FuncionariosDAO from "../Persistence/funcionarioDAO.js";
 export default class Funcionarios{
     #id;
     #Nome;
-    #Cargo;
-    #Salario;
-    #Dtadecontratacao;
-    #Email;
-    #DataNasc;
+    
 
-
-    constructor(id=0,Nome="", Cargo="", 
-    Salario=0, Dtadecontratacao="", Email="", DataNasc=""
-                ){
+    constructor(id=0, Nome=""){
         this.#id=id;
         this.#Nome=Nome;
-        this.#Cargo=Cargo;
-        this.#Salario=Salario;
-        this.#Dtadecontratacao=Dtadecontratacao;
-        this.#Email=Email;
-        this.#DataNasc=DataNasc
     }
 
     get id(){
@@ -37,56 +25,12 @@ export default class Funcionarios{
         this.#Nome=novaNome;
     }
 
-    get Cargo(){
-        return this.#Cargo;
-    }
-
-    set Cargo(novoCargo){
-        this.#Cargo=novoCargo;
-    }
-
-    get Salario(){
-        return this.#Salario;
-    }
-
-    set Salario(novoSalario){
-        this.#Salario = novoSalario;
-    }
-
-    get Dtadecontratacao(){
-        return this.#Dtadecontratacao;
-    }
-    
-    set Dtadecontratacao(novoDT){
-        this.#Dtadecontratacao = novoDT;
-    }
-
-    get Email(){
-        return this.#Email;
-    }
-
-    set Email(novaEmail){
-        this.#Email = novaEmail;
-    }
-
-    get DataNasc(){
-        return this.#DataNasc;
-    }
-
-    set DataNasc(novaDataNasc){
-        this.#DataNasc = novaDataNasc;
-    }
 
 
     toJSON(){
         return {
             ID:this.#id,
             Nome:this.#Nome,
-            Cargo:this.#Cargo,
-            Salario:this.#Salario,
-            Dtadecontratacao:this.#Dtadecontratacao,
-            Email:this.#Email,
-            DataNasc:this.#DataNasc
         }
     }
 
