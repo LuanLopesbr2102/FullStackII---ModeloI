@@ -14,7 +14,6 @@ export default class FuncionarioCtrl {
         resposta.type('application/json');
         if (requisicao.method === 'POST' && requisicao.is('application/json')) {
             const dados = requisicao.body;
-            //const id = dados.id;
             const Nome = dados.Nome;
             const Cargo = dados.Cargo;
             const Salario = dados.Salario;
@@ -22,7 +21,7 @@ export default class FuncionarioCtrl {
             const Email = dados.Email;
             const DataNasc = dados.DataNasc;
             if (Nome && Cargo && Salario > 0 && Dtadecontratacao && Email && DataNasc) {
-                const funcionarios = new Funcionarios(0, Nome, Cargo, Salario, Dtadecontratacao, Email, DataNasc);
+                const funcionarios = new Funcionarios(Nome, Cargo, Salario, Dtadecontratacao, Email, DataNasc);
                 //resolver a promise
                 funcionarios.gravar().then(() => {
                     resposta.status(200).json({

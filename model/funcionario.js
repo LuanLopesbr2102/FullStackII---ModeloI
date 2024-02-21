@@ -1,4 +1,4 @@
-import FuncionariosDAO from "../Persistence/departamentoDAO.js";
+import FuncionariosDAO from "../Persistence/funcionarioDAO.js";
 
 export default class Funcionarios{
     #id;
@@ -11,7 +11,7 @@ export default class Funcionarios{
 
 
     constructor(id=0,Nome="", Cargo="", 
-    Salario=0,Dtadecontratacao="", Email="", DataNasc=""
+    Salario=0, Dtadecontratacao="", Email="", DataNasc=""
                 ){
         this.#id=id;
         this.#Nome=Nome;

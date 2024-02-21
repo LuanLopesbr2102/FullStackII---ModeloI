@@ -3,9 +3,10 @@ import conectar from "./conexao.js";
 
 export default class FuncionariosDAO{
     async gravar(funcionario){
-        if (funcionario instanceof Funcionarios){
-            const sql = "INSERT INTO Funcionarios(fuc_Nome,	fuc_Cargo, fuc_Salario, fuc_Dtadecontratacao, fuc_Email, fuc_DataNasc) VALUES(?,?,?,?,?,?)"; 
-            const parametros = [funcionario.fuc_Nome, funcionario.fuc_Cargo, funcionario.fuc_Salario, funcionario.fuc_Dtadecontratacao, funcionario.fuc_Email, funcionario.fuc_DataNasc];
+        if (funcionario instanceof Funcionario){
+            const sql = `INSERT INTO Funcionarios(fuc_id, fuc_Nome,	fuc_Cargo, fuc_Salario, 
+                fuc_Dtadecontratacao, fuc_Email, fuc_DataNasc) VALUES(?,?,?,?,?,?,?)`; 
+            const parametros = [funcionario.Nome, funcionario.Cargo, funcionario.Salario, funcionario.Dtadecontratacao, funcionario.Email, funcionario.DataNasc];
             const conexao = await conectar(); 
             const retorno = await conexao.execute(sql,parametros); 
             funcionario.id = retorno[0].insertId;
@@ -14,9 +15,9 @@ export default class FuncionariosDAO{
     }
 
     async atualizar(funcionario){
-        if (funcionario instanceof Funcionarios){
+        if (funcionario instanceof Funcionario){
             const sql = "UPDATE Funcionarios SET dep_Nome = ?, dep_Cargo = ?, dep_Salario = ?, dep_Dtadecontratacao = ?, dep_Email = ?, dep_DataNasc = ? WHERE fuc_id = ?"; 
-            const parametros = [funcionario.fuc_Nome, funcionario.fuc_Cargo, funcionario.fuc_Salario, funcionario.fuc_Dtadecontratacao, funcionario.fuc_Email, funcionario.fuc_DataNasc, funcionario.fuc_id];
+            const parametros = [funcionario.Nome, funcionario.Cargo, funcionario.Salario, funcionario.Dtadecontratacao, funcionario.Email, funcionario.DataNasc, funcionario.id];
             const conexao = await conectar(); 
             await conexao.execute(sql,parametros); 
             global.poolConexoes.releaseConnection(conexao);
@@ -24,7 +25,7 @@ export default class FuncionariosDAO{
     }
 
     async excluir(funcionario){
-        if (funcionario instanceof Funcionarios){
+        if (funcionario instanceof Funcionario){
             const sql = "DELETE FROM Funcionarios WHERE fuc_id = ?"; 
             const parametros = [funcionario.fuc_id];
             const conexao = await conectar(); 

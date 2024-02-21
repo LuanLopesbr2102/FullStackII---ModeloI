@@ -1,7 +1,7 @@
 import Departamento from "../model/departamento.js";
 
 
-export default class ProdutoCtrl {
+export default class DepartamentoCtrl {
 
     gravar(requisicao, resposta) {
         resposta.type('application/json');
