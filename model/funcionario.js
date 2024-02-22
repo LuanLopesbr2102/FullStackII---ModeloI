@@ -45,7 +45,7 @@ export default class Funcionarios{
         await funcDAO.excluir(this);
      }
  
-     async alterar(){
+     async atualizar(){
         const funcDAO = new FuncionariosDAO();
         await funcDAO.atualizar(this);
      }
