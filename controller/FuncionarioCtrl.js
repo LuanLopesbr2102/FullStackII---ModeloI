@@ -16,8 +16,8 @@ export default class FuncionarioCtrl {
             const dados = requisicao.body;
             const Nome = dados.Nome;
             
-            if (Nome ) {
-                const funcionarios = new Funcionarios(Nome);
+            if (Nome) {
+                const funcionarios = new Funcionarios(0,Nome);
                 //resolver a promise
                 funcionarios.gravar().then(() => {
                     resposta.status(200).json({

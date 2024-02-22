@@ -5,7 +5,7 @@ export default class Funcionarios{
     #Nome;
     
 
-    constructor(id=0, Nome=""){
+    constructor(id=0, Nome=''){
         this.#id=id;
         this.#Nome=Nome;
     }
@@ -29,7 +29,7 @@ export default class Funcionarios{
 
     toJSON(){
         return {
-            ID:this.#id,
+            id:this.#id,
             Nome:this.#Nome,
         }
     }
