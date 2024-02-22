@@ -102,7 +102,7 @@ export default class DepartamentoCtrl {
             if (id) {
                 const departamento = new Departamento(id);
                 //resolver a promise
-                departamento.atualizar().then(() => {
+                departamento.excluir().then(() => {
                     resposta.status(200).json({
                         "status": true,
                         "mensagem": "Departamento excluído com sucesso!"
