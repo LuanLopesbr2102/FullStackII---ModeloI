@@ -21,7 +21,7 @@ export default class DepartamentoDAO {
     async atualizar(departamento) {
         if (departamento instanceof Departamento) {
             const sql = `UPDATE Departamento SET dep_Nome = ?, dep_Localizacao = ?,
-            dep_Chefedodepartamento = ?, dep_Dtacriacao = ?, dep_Descricao = ?, dep_Orcamento = ?, fuc_id = ?
+            dep_Chefedodepartamento = ?, dep_Dtacriacao = ?, dep_Descricao = ?, dep_Orcamento = ?, fuc_cod = ?
             WHERE dep_id = ?`;
             const parametros = [departamento.Nome, departamento.Localizacao, departamento.ChefedeDepartamento,
                 departamento.DatadeCriacao, departamento.Descricao, departamento.Orcamento,departamento.funcionario.id, departamento.id];

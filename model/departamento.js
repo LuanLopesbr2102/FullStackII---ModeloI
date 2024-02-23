@@ -95,10 +95,10 @@ export default class Departamento {
         return {
             id:this.#id,
             Nome:this.#Nome,
-            Localização:this.#Localizacao,
+            Localizacao:this.#Localizacao,
             ChefedeDepartamento:this.#ChefedeDepartamento,
             DatadeCriacao:this.#DatadeCriacao,
-            Descrição:this.#Descricao,
+            Descricao:this.#Descricao,
             Orcamento:this.#Orcamento,
             funcionario:this.#funcionario
         }

@@ -53,18 +53,18 @@ export default class DepartamentoCtrl {
         resposta.type('application/json');
         if ((requisicao.method === 'PUT' || requisicao.method === 'PATCH') && requisicao.is('application/json')) {
             const dados = requisicao.body;
-            const id = dados.id;
-            const Nome = dados.Nome;
-            const Localizacao = dados.Localizacao;
-            const Chefedodepartamento = dados.Chefedodepartamento;
-            const Dtacriacao = dados.Dtacriacao;
-            const Descricao = dados.Descricao;
-            const Orcamento = dados.Orcamento;
-            const funcionario = dados.funcionario;
-            if (id && Nome && Localizacao && Chefedodepartamento && Dtacriacao
+            const id = dados.id
+            const Nome = dados.Nome
+            const Localizacao = dados.Localizacao
+            const ChefedeDepartamento = dados.ChefedeDepartamento
+            const DatadeCriacao = dados.DatadeCriacao
+            const Descricao = dados.Descricao
+            const Orcamento = dados.Orcamento
+            const funcionario = dados.funcionario
+            if (id && Nome && Localizacao && ChefedeDepartamento && DatadeCriacao
                 && Descricao && Orcamento > 0 && funcionario) {
                 const departamento = new Departamento(id, Nome, Localizacao,
-                    Chefedodepartamento, Dtacriacao, Descricao, Orcamento, funcionario);
+                    ChefedeDepartamento, DatadeCriacao, Descricao, Orcamento, funcionario);
                 //resolver a promise
                 departamento.atualizar().then(() => {
                     resposta.status(200).json({
