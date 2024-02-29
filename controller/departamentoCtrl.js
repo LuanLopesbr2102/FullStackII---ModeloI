@@ -9,15 +9,15 @@ export default class DepartamentoCtrl {
             const dados = requisicao.body;
             const Nome = dados.Nome;
             const Localizacao = dados.Localizacao;
-            const Chefedodepartamento = dados.Chefedodepartamento;
-            const Dtacriacao = dados.Dtacriacao;
+            const ChefedeDepartamento  = dados.ChefedeDepartamento ;
+            const DatadeCriacao  = dados.DatadeCriacao ;
             const Descricao = dados.Descricao;
             const Orcamento = dados.Orcamento;
             const funcionario = dados.funcionario;
-            if (Nome && Localizacao && Chefedodepartamento && Dtacriacao
+            if (Nome && Localizacao && ChefedeDepartamento  && DatadeCriacao 
                 && Descricao && Orcamento > 0 && funcionario) {
                 const departamento = new Departamento(0, Nome, Localizacao,
-                    Chefedodepartamento, Dtacriacao, Descricao, Orcamento, funcionario
+                    ChefedeDepartamento, DatadeCriacao , Descricao, Orcamento, funcionario
                 );
                 //resolver a promise
                 departamento.gravar().then(() => {
