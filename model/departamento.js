@@ -11,6 +11,7 @@ export default class Departamento {
     #Descricao;
     #Orcamento
     #funcionario;
+    
 
     constructor(id=0, Nome='', Localizacao='', ChefedeDepartamento='', DatadeCriacao='', Descricao='', Orcamento=0, funcionario={}){
         this.#id=id;
