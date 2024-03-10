@@ -3,11 +3,12 @@ import FuncionariosDAO from "../Persistence/funcionarioDAO.js";
 export default class Funcionarios{
     #id;
     #Nome;
-    
+    #departamento;
 
-    constructor(id=0, Nome=''){
+    constructor(id=0, Nome='', departamento={}){
         this.#id=id;
         this.#Nome=Nome;
+        this.#departamento=departamento;
     }
 
     get id(){
@@ -25,12 +26,19 @@ export default class Funcionarios{
         this.#Nome=novaNome;
     }
 
+    get departamento(){
+        return this.#departamento;
+    }
 
+    set departamento(novoDepart){
+        this.#departamento = novoDepart;
+    }
 
     toJSON(){
         return {
             id:this.#id,
             Nome:this.#Nome,
+            departamento:this.#departamento
         }
     }
 

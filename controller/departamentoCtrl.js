@@ -13,11 +13,11 @@ export default class DepartamentoCtrl {
             const DatadeCriacao  = dados.DatadeCriacao ;
             const Descricao = dados.Descricao;
             const Orcamento = dados.Orcamento;
-            const funcionario = dados.funcionario;
-            if (Nome && Localizacao && ChefedeDepartamento  && DatadeCriacao 
-                && Descricao && Orcamento > 0 && funcionario) {
+            
+            if (Nome && Localizacao && ChefedeDepartamento && DatadeCriacao 
+                && Descricao && Orcamento > 0 ) {
                 const departamento = new Departamento(0, Nome, Localizacao,
-                    ChefedeDepartamento, DatadeCriacao , Descricao, Orcamento, funcionario
+                    ChefedeDepartamento, DatadeCriacao , Descricao, Orcamento, 
                 );
                 //resolver a promise
                 departamento.gravar().then(() => {
@@ -60,11 +60,11 @@ export default class DepartamentoCtrl {
             const DatadeCriacao = dados.DatadeCriacao
             const Descricao = dados.Descricao
             const Orcamento = dados.Orcamento
-            const funcionario = dados.funcionario
+            
             if (id && Nome && Localizacao && ChefedeDepartamento && DatadeCriacao
-                && Descricao && Orcamento > 0 && funcionario) {
+                && Descricao && Orcamento > 0 ) {
                 const departamento = new Departamento(id, Nome, Localizacao,
-                    ChefedeDepartamento, DatadeCriacao, Descricao, Orcamento, funcionario);
+                    ChefedeDepartamento, DatadeCriacao, Descricao, Orcamento);
                 //resolver a promise
                 departamento.atualizar().then(() => {
                     resposta.status(200).json({

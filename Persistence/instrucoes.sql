@@ -1,10 +1,3 @@
-CREATE table Funcionarios(
-	fuc_id INT NOT NULL AUTO_INCREMENT,
-	fuc_Nome VARCHAR (80) NULL,
-	CONSTRAINT pk_Funcionario
-	    PRIMARY KEY (fuc_id)
-);
-
 CREATE table Departamento(
 	dep_id INT NOT NULL AUTO_INCREMENT,
 	dep_Nome VARCHAR (80) NULL,
@@ -13,14 +6,23 @@ CREATE table Departamento(
 	dep_Dtacriacao DATE NULL,
 	dep_Descricao VARCHAR (100) NULL,
 	dep_Orcamento DECIMAL (10, 2) NULL,
-	fuc_cod INT NULL,
 	CONSTRAINT pk_Departamento
-	    PRIMARY KEY (dep_id),
-	CONSTRAINT fk_Departamento_Func
-	    FOREIGN KEY (fuc_cod)
-	    REFERENCES Funcionarios (fuc_id)	
+	    PRIMARY KEY (dep_id)
+		
 	    
 );
+
+CREATE table Funcionarios(
+	fuc_id INT NOT NULL AUTO_INCREMENT,
+	fuc_Nome VARCHAR (80) NULL,
+    dep_cod INT NULL,
+	CONSTRAINT pk_Funcionario
+	    PRIMARY KEY (fuc_id),
+    CONSTRAINT fk_Departamento_Func
+	    FOREIGN KEY (dep_cod)
+	    REFERENCES Departamento (dep_id)
+);
+
 
 CREATE TABLE Fornecedor(
     forne_id INT NOT NULL AUTO_INCREMENT,

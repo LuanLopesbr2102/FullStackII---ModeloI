@@ -2,22 +2,16 @@
 import Funcionarios from "../model/funcionario.js";
 
 export default class FuncionarioCtrl {
-/* #id;
-#Nome;
-#Cargo;
-#Salario;
-#Dtadecontratacao;
-#Email;
-#DataNasc;*/
+/* */
 
     gravar(requisicao, resposta) {
         resposta.type('application/json');
         if (requisicao.method === 'POST' && requisicao.is('application/json')) {
             const dados = requisicao.body;
             const Nome = dados.Nome;
-            
-            if (Nome) {
-                const funcionarios = new Funcionarios(0,Nome);
+            const departamento = dados.departamento;
+            if (Nome && departamento ) {
+                const funcionarios = new Funcionarios(0, Nome, departamento);
                 //resolver a promise
                 funcionarios.gravar().then(() => {
                     resposta.status(200).json({
@@ -54,9 +48,10 @@ export default class FuncionarioCtrl {
             const dados = requisicao.body;
             const id = dados.id;
             const Nome = dados.Nome;
+            const departamento = dados.departamento;
           
             if (id && Nome) {
-                const funcionarios = new Funcionarios(id, Nome);
+                const funcionarios = new Funcionarios(id, Nome, departamento);
                 //resolver a promise
                 funcionarios.atualizar().then(() => {
                     resposta.status(200).json({

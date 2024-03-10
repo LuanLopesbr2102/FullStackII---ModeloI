@@ -10,8 +10,6 @@ export default class Departamento {
     #DatadeCriacao;
     #Descricao;
     #Orcamento
-    #funcionario;
-    
 
     constructor(id=0, Nome='', Localizacao='', ChefedeDepartamento='', DatadeCriacao='', Descricao='', Orcamento=0, funcionario={}){
         this.#id=id;
@@ -21,7 +19,6 @@ export default class Departamento {
         this.#DatadeCriacao=DatadeCriacao;
         this.#Descricao=Descricao;
         this.#Orcamento=Orcamento;
-        this.#funcionario=funcionario;
     }
 
    
@@ -82,14 +79,6 @@ export default class Departamento {
         this.#Descricao = novaDesc;
     }
 
-    get funcionario(){
-        return this.#funcionario;
-    }
-
-    set funcionario(novofunc){
-        this.#funcionario = novofunc;
-    }
-
     //override do método toJSON
     toJSON()     
     {//id=0, Nome='', Localizacao='', ChefedeDepartamento='', DatadeCriacao='', Descricao='', Orcamento=''
@@ -101,7 +90,6 @@ export default class Departamento {
             DatadeCriacao:this.#DatadeCriacao,
             Descricao:this.#Descricao,
             Orcamento:this.#Orcamento,
-            funcionario:this.#funcionario
         }
     }
 
