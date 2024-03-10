@@ -14,7 +14,7 @@ export default class DepartamentoCtrl {
             const Descricao = dados.Descricao;
             const Orcamento = dados.Orcamento;
             
-            if (Nome && Localizacao && ChefedeDepartamento  && DatadeCriacao 
+            if (Nome && Localizacao && ChefedeDepartamento && DatadeCriacao 
                 && Descricao && Orcamento > 0 ) {
                 const departamento = new Departamento(0, Nome, Localizacao,
                     ChefedeDepartamento, DatadeCriacao , Descricao, Orcamento, 
