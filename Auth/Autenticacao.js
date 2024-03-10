@@ -1,4 +1,4 @@
-/*import { assinar, verificarAssinatura } from "./funcoesJWT.js";
+import { assinar, verificarAssinatura } from "./funcoesJWT.js";
 export function autenticar(requisicao, resposta){
     const usuario = requisicao.body.usuario;
     const senha = requisicao.body.senha;
@@ -39,4 +39,4 @@ export function verificarAcesso(requisicao, resposta, next){
         })
     }
 
-}*/
+}
