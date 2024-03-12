@@ -1,48 +1,48 @@
-import Produto from "../Modelo/produto.js";
-
-export default class ProdutoCtrl {
+import Departamento from "../Modelo/departamento.js";
+export default class DepartamentoCtrl {
 
     gravar(requisicao, resposta) {
         resposta.type('application/json');
         if (requisicao.method === 'POST' && requisicao.is('application/json')) {
             const dados = requisicao.body;
-            const descricao = dados.descricao;
-            const precoCusto = dados.precoCusto;
-            const precoVenda = dados.precoVenda;
-            const dataValidade = dados.dataValidade;
-            const qtdEstoque = dados.qtdEstoque;
-
-            if (descricao && precoCusto > 0 && precoVenda > 0 && dataValidade
-                && qtdEstoque >= 0) {
-                const produto = new Produto(0, descricao, precoCusto,
-                    precoVenda, dataValidade, qtdEstoque
+            const Nome = dados.Nome;
+            const Localizacao = dados.Localizacao;
+            const ChefedeDepartamento  = dados.ChefedeDepartamento ;
+            const DatadeCriacao  = dados.DatadeCriacao ;
+            const Descricao = dados.Descricao;
+            const Orcamento = dados.Orcamento;
+            
+            if (Nome && Localizacao && ChefedeDepartamento && DatadeCriacao 
+                && Descricao && Orcamento > 0 ) {
+                const departamento = new Departamento(0, Nome, Localizacao,
+                    ChefedeDepartamento, DatadeCriacao , Descricao, Orcamento, 
                 );
                 //resolver a promise
-                produto.gravar().then(() => {
+                departamento.gravar().then(() => {
                     resposta.status(200).json({
                         "status": true,
-                        "codigoGerado": produto.codigo,
-                        "mensagem": "Produto incluído com sucesso!"
+                        "codigoGerado": departamento.id,
+                        "mensagem": "Departamento cadastrado com sucesso!"
                     });
                 })
                     .catch((erro) => {
                         resposta.status(500).json({
                             "status": false,
-                            "mensagem": "Erro ao registrar o produto:" + erro.message
+                            "mensagem": "Erro ao registrar o departamento:" + erro.message
                         });
                     });
             }
             else {
                 resposta.status(400).json({
                     "status": false,
-                    "mensagem": "Por favor, os dados do produto segundo a documentação da API!"
+                    "mensagem": "Por favor, os dados do departamento segundo a documentação da API!"
                 });
             }
         }
         else {
             resposta.status(400).json({
                 "status": false,
-                "mensagem": "Por favor, utilize o método POST para cadastrar um produto!"
+                "mensagem": "Por favor, utilize o método POST para cadastrar um departamento!"
             });
         }
     }
@@ -51,41 +51,43 @@ export default class ProdutoCtrl {
         resposta.type('application/json');
         if ((requisicao.method === 'PUT' || requisicao.method === 'PATCH') && requisicao.is('application/json')) {
             const dados = requisicao.body;
-            const codigo = dados.codigo;
-            const descricao = dados.descricao;
-            const precoCusto = dados.precoCusto;
-            const precoVenda = dados.precoVenda;
-            const dataValidade = dados.dataValidade;
-            const qtdEstoque = dados.qtdEstoque;
-            if (codigo && descricao && precoCusto > 0 && precoVenda > 0 && dataValidade
-                && qtdEstoque >= 0) {
-                const produto = new Produto(codigo, descricao, precoCusto,
-                    precoVenda, dataValidade, qtdEstoque);
+            const id = dados.id
+            const Nome = dados.Nome
+            const Localizacao = dados.Localizacao
+            const ChefedeDepartamento = dados.ChefedeDepartamento
+            const DatadeCriacao = dados.DatadeCriacao
+            const Descricao = dados.Descricao
+            const Orcamento = dados.Orcamento
+            
+            if (id && Nome && Localizacao && ChefedeDepartamento && DatadeCriacao
+                && Descricao && Orcamento > 0 ) {
+                const departamento = new Departamento(id, Nome, Localizacao,
+                    ChefedeDepartamento, DatadeCriacao, Descricao, Orcamento);
                 //resolver a promise
-                produto.atualizar().then(() => {
+                departamento.atualizar().then(() => {
                     resposta.status(200).json({
                         "status": true,
-                        "mensagem": "Produto atualizado com sucesso!"
+                        "mensagem": "Departamento atualizado com sucesso!"
                     });
                 })
                     .catch((erro) => {
                         resposta.status(500).json({
                             "status": false,
-                            "mensagem": "Erro ao atualizar o produto:" + erro.message
+                            "mensagem": "Erro ao atualizar o departamento:" + erro.message
                         });
                     });
             }
             else {
                 resposta.status(400).json({
                     "status": false,
-                    "mensagem": "Por favor, informe todos os dados do produto segundo a documentação da API!"
+                    "mensagem": "Por favor, informe todos os dados do departamento segundo a documentação da API!"
                 });
             }
         }
         else {
             resposta.status(400).json({
                 "status": false,
-                "mensagem": "Por favor, utilize os métodos PUT ou PATCH para atualizar um produto!"
+                "mensagem": "Por favor, utilize os métodos PUT ou PATCH para atualizar um departamento!"
             });
         }
     }
@@ -94,34 +96,34 @@ export default class ProdutoCtrl {
         resposta.type('application/json');
         if (requisicao.method === 'DELETE' && requisicao.is('application/json')) {
             const dados = requisicao.body;
-            const codigo = dados.codigo;
-            if (codigo) {
-                const produto = new Produto(codigo);
+            const id = dados.id;
+            if (id) {
+                const departamento = new Departamento(id);
                 //resolver a promise
-                produto.atualizar().then(() => {
+                departamento.excluir().then(() => {
                     resposta.status(200).json({
                         "status": true,
-                        "mensagem": "Produto excluído com sucesso!"
+                        "mensagem": "Departamento excluído com sucesso!"
                     });
                 })
                     .catch((erro) => {
                         resposta.status(500).json({
                             "status": false,
-                            "mensagem": "Erro ao excluir o produto:" + erro.message
+                            "mensagem": "Erro ao excluir o departamento:" + erro.message
                         });
                     });
             }
             else {
                 resposta.status(400).json({
                     "status": false,
-                    "mensagem": "Por favor, informe o código do produto!"
+                    "mensagem": "Por favor, informe o código do departamento!"
                 });
             }
         }
         else {
             resposta.status(400).json({
                 "status": false,
-                "mensagem": "Por favor, utilize o método DELETE para excluir um produto!"
+                "mensagem": "Por favor, utilize o método DELETE para excluir um departamento!"
             });
         }
     }
@@ -136,19 +138,19 @@ export default class ProdutoCtrl {
             termo = "";
         }
         if (requisicao.method === "GET") {
-            const produto = new Produto();
-            produto.consultar(termo).then((listaProdutos) => {
+            const departamento = new Departamento();
+            departamento.consultar(termo).then((listaDepartamentos) => {
                 resposta.json(
                     {
                         status: true,
-                        listaProdutos
+                        listaDepartamentos
                     });
             })
                 .catch((erro) => {
                     resposta.json(
                         {
                             status: false,
-                            mensagem: "Não foi possível obter os produtos: " + erro.message
+                            mensagem: "Não foi possível obter o departamento: " + erro.message
                         }
                     );
                 });
@@ -156,7 +158,7 @@ export default class ProdutoCtrl {
         else {
             resposta.status(400).json({
                 "status": false,
-                "mensagem": "Por favor, utilize o método GET para consultar produtos!"
+                "mensagem": "Por favor, utilize o método GET para consultar Departamentos!"
             });
         }
     }
