@@ -1,5 +1,8 @@
 import { assinar, verificarAssinatura } from "./funcoesJWT.js";
+<<<<<<< HEAD
 
+=======
+>>>>>>> f544b11078ae957bff650b1da6264467db387f7a
 export function autenticar(requisicao, resposta){
     const usuario = requisicao.body.usuario;
     const senha = requisicao.body.senha;
@@ -36,7 +39,11 @@ export function verificarAcesso(requisicao, resposta, next){
     else{
         resposta.status(401).json({
             "status": false,
+<<<<<<< HEAD
             "mensagem": "Acesso não autorizado. Faça o login na aplicação!"
+=======
+            "mensagem": "Usuário ou senha inaválidos!"
+>>>>>>> f544b11078ae957bff650b1da6264467db387f7a
         })
     }
 
