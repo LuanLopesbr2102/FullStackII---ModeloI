@@ -1,6 +1,4 @@
-import Departamento from "../model/departamento.js";
-
-
+import Departamento from "../Modelo/departamento.js";
 export default class DepartamentoCtrl {
 
     gravar(requisicao, resposta) {

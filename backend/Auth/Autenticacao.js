@@ -35,7 +35,8 @@ export function verificarAcesso(requisicao, resposta, next){
     else{
         resposta.status(401).json({
             "status": false,
-            "mensagem": "Usuário ou senha inaválidos!"
+            "mensagem": "Acesso não autorizado. Faça o login na aplicação!"
+
         })
     }
 

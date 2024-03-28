@@ -1,5 +1,5 @@
 //camada de interface da API que traduz HTTP
-import Funcionarios from "../model/funcionario.js";
+import Funcionarios from "../Modelo/funcionario.js";
 
 export default class FuncionarioCtrl {
 /* */
@@ -8,10 +8,10 @@ export default class FuncionarioCtrl {
         resposta.type('application/json');
         if (requisicao.method === 'POST' && requisicao.is('application/json')) {
             const dados = requisicao.body;
-            const Nome = dados.Nome;
+            const nome = dados.nome;
             const departamento = dados.departamento;
-            if (Nome && departamento ) {
-                const funcionarios = new Funcionarios(0, Nome, departamento);
+            if (nome && departamento ) {
+                const funcionarios = new Funcionarios(0, nome, departamento);
                 //resolver a promise
                 funcionarios.gravar().then(() => {
                     resposta.status(200).json({
@@ -47,11 +47,11 @@ export default class FuncionarioCtrl {
         if ((requisicao.method === 'PUT' || requisicao.method === 'PATCH') && requisicao.is('application/json')) {
             const dados = requisicao.body;
             const id = dados.id;
-            const Nome = dados.Nome;
+            const nome = dados.nome;
             const departamento = dados.departamento;
           
-            if (id && Nome) {
-                const funcionarios = new Funcionarios(id, Nome, departamento);
+            if (id && nome && departamento) {
+                const funcionarios = new Funcionarios(id, nome, departamento);
                 //resolver a promise
                 funcionarios.atualizar().then(() => {
                     resposta.status(200).json({
