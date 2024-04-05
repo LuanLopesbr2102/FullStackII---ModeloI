@@ -16,7 +16,7 @@ export default class FuncionarioCtrl {
                 funcionarios.gravar().then(() => {
                     resposta.status(200).json({
                         "status": true,
-                        "codigoGerado": funcionarios.id,
+                        "id": funcionarios.id,
                         "mensagem": "Funcionario registrado com sucesso!"
                     });
                 })

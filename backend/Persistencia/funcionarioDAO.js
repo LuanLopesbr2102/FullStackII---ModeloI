@@ -12,7 +12,7 @@ export default class FuncionarioDAO {
 
             const conexao = await conectar();
             const retorno = await conexao.execute(sql, parametros);
-            funcionario.codigo = retorno[0].insertId;
+            funcionario.id = retorno[0].insertId;
             global.poolConexoes.releaseConnection(conexao);
         }
     }

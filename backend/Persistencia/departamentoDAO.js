@@ -8,7 +8,7 @@ export default class DepartamentoDAO{
             const parametros = [departamento.Nome, departamento.Localizacao, departamento.ChefedeDepartamento, departamento.DatadeCriacao, departamento.Descricao, departamento.Orcamento];
             const conexao = await conectar(); //retorna uma conexão
             const retorno = await conexao.execute(sql,parametros); //prepara a sql e depois executa
-            departamento.codigo = retorno[0].insertId;
+            departamento.id = retorno[0].insertId;
             global.poolConexoes.releaseConnection(conexao);
         }
     }

@@ -21,7 +21,7 @@ export default class DepartamentoCtrl {
                 departamento.gravar().then(() => {
                     resposta.status(200).json({
                         "status": true,
-                        "codigoGerado": departamento.id,
+                        "id": departamento.id,
                         "mensagem": "Departamento cadastrado com sucesso!"
                     });
                 })
