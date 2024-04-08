@@ -1,11 +1,11 @@
-import FormCadVenda from "./formularios/FormCadVenda";
+import FormCadProjeto from "./formularios/FormCadProjeto";
 
 
 function App() {
   return (
     <div className="App">
       
-      <FormCadVenda/>
+      <FormCadProjeto/>
       
     </div>
   );
