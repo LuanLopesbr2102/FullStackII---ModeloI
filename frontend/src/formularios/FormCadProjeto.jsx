@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Form, Row, Col, Button, Container } from "react-bootstrap";
 import BarraBusca from "../meusComponentes/busca/BarraBusca";
 import CaixaSelecao from "../meusComponentes/busca/CaixaSelecao";
-import TabelaFuncionario from "../tabelas/TabelaItensVenda";
+import TabelaFuncionario from "../tabelas/TabelaItensProjeto";
 import "./Formulario.css"
 
 export default function FormCadVenda(props) {
