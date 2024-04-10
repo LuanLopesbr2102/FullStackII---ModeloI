@@ -3,9 +3,9 @@ import funcionarioDAO from "../Persistencia/funcionarioDAO.js";
 
 export default class Categoria {
     //definição dos atributos privados
-    #id;
-    #nome;
-    #departamento
+        #id;
+        #nome;
+        #departamento
 
     constructor(id=0, nome='', departamento={}){
         this.#id=id;

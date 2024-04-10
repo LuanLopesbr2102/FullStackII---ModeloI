@@ -9,7 +9,7 @@ import rotaCliente from './Rotas/rotaCliente.js';
 import session from 'express-session';
 /*import { verificarAcesso } from './Auth/Autenticacao.js';*/
 
-const host='0.0.0.0';
+const host='localhost';
 const porta='3001';
 
 dotenv.config();

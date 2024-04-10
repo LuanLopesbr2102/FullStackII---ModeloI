@@ -6,9 +6,9 @@ export default async function conectar(){
     }
     else{
         const pool = mysql.createPool({
-            host: '129.146.68.51',
-            user: 'aluno171-pfsii', //process.env.USUARIO_BD
-            password: 'aluno171-pfsii',  //process.env.SENHA_BD
+            host: 'localhost',
+            user: 'root', //process.env.USUARIO_BD
+            password: '',  //process.env.SENHA_BD
             database: 'backendaluno171pfsii',
             waitForConnections: true,
             connectionLimit: 10,

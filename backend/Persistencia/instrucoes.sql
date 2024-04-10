@@ -2,6 +2,24 @@ CREATE DATABASE sistema;
 
 USE sistema;
 
+CREATE TABLE departamento (
+    dep_id INT AUTO_INCREMENT PRIMARY KEY,
+    dep_Nome VARCHAR(255) NOT NULL,
+    dep_Localizacao VARCHAR(255) NOT NULL,
+    dep_Chefedodepartamento VARCHAR(255) NOT NULL,
+    dep_Dtacriacao DATE NOT NULL,
+    dep_Descricao VARCHAR(255) NOT NULL,
+    dep_Orcamento DECIMAL(10, 2) NOT NULL
+);
+ 
+CREATE TABLE Funcionarios (
+    fuc_id INT PRIMARY KEY AUTO_INCREMENT,
+    fuc_Nome VARCHAR(255),
+    dep_cod INT,
+    FOREIGN KEY (dep_cod) REFERENCES departamento(dep_id)
+);
+
+
 CREATE TABLE cliente (
     id INT PRIMARY KEY AUTO_INCREMENT,
     cnpj VARCHAR(20) NOT NULL,

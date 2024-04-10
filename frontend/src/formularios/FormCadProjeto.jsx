@@ -226,7 +226,7 @@ export default function FormCadVenda(props) {
               </Form.Control.Feedback>
             </Form.Group>
             <Form.Group as={Col} md="3" controlId="orcamento">
-              <Form.Label>Descrição do projeto</Form.Label>
+              <Form.Label>Orçamento do projeto</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Orcamento:"
