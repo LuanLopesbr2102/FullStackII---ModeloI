@@ -1,16 +1,14 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import rotaFuncionario from './Rotas/rotaFuncionario.js';
-import rotaDepartamento from './Rotas/rotaDepartamento.js';
-import rotaProjeto from './Rotas/rotaProjeto.js';
-import rotaLogin from './Rotas/rotaLogin.js'
-import rotaCliente from './Rotas/rotaCliente.js';
+import rotaVagas from './Rotas/rotaVaga.js';
+import rotaCandidatos from './Rotas/rotaCandidato.js';
+import rotaInscricao from './Rotas/rotacandidato_Vaga.js'
 import session from 'express-session';
 /*import { verificarAcesso } from './Auth/Autenticacao.js';*/
 
 const host='localhost';
-const porta='3001';
+const porta='4000';
 
 dotenv.config();
 
@@ -26,11 +24,11 @@ app.use(session({
     maxAge: 1000 * 60 * 6
 }))
 
-app.use('/login',rotaLogin)
-app.use('/cliente',rotaCliente);
-app.use('/departamento'/*,verificarAcesso*/, rotaDepartamento);
-app.use('/funcionario'/*,verificarAcesso*/, rotaFuncionario);
-app.use('/projeto'/*,verificarAcesso*/, rotaProjeto);
+
+
+app.use('/candidatos', rotaCandidatos);
+app.use('/vagas', rotaVagas);
+app.use('/inscricoes', rotaInscricao);
 
 app.listen(porta, host, ()=>{
     console.log(`Servidor escutando na porta ${host}:${porta}.`);
